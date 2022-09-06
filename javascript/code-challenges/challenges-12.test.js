@@ -53,6 +53,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
+  let reg=/^[A-Za-z]{1,}[0-9]{1,}/;
+  return(reg.test(string))
   // Solution code here...
 };
 
@@ -71,10 +73,10 @@ Return either true or false.
 
 Note: if you ever need to validate an email using a regex in practice, the Internet has the actual regex you should use. It's many many lines long.
 ------------------------------------------------------------------------------------------------ */
-
+// joe.schmoe@codefellows.net
 const validateEmail = (email) => {
   let str=email.toString()
-  let reg=/^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+  let reg=/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.com|\.net|\.org)$/;
   let newstr=reg.test(str)
      
 
@@ -107,7 +109,8 @@ Return either true or false.
 const validatePhoneNumber = (phoneNumber) => {
   let str=phoneNumber.toString()
 
-  let reg=/^\(?(\d{3})\)?[- ]?\d{3}[- ]?\d{4}$/;
+  let reg=/^(\(\d{3})\)|\d{3})[- ]?\d{3}[- ]?\d{4}$/;
+  // /^(\([0-9]{3,3}\)|[0-9]{3,3})[\- ]?[0-9]{3,3}[\- ]?[0-9]{4,4}$/
   let newstr=reg.test(str)
   // Solution code here...
   return(newstr)
