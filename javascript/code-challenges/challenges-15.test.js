@@ -198,7 +198,6 @@ Here is a sample board:
 ];
 ------------------------------------------------------------------------------------------------ */
 
-const detectTicTacToeWin = (board) => {
   
 const detectTicTacToeWin = (board) => {
   let row1=board[0]; 
@@ -208,35 +207,22 @@ const detectTicTacToeWin = (board) => {
   let row3=board[2];
   let col3=[board[0][2],board[1][2],board[2][2]];
   let diag1=[board[0][0],board[1][1],board[2][2]];
-   let diag2=[board[0][2],board[1][1],board[2][0]];
+  let diag2=[board[0][2],board[1][1],board[2][0]];
+  let Total=[row1,row2,row3,col1,col2,col3,diag1,diag2]
+  console.log(Total)
   
-  if(row1[0]==row1[1]&&row1[1]==row1[2]&&row1[2]==row1[0]){
-       consol.log(1,true)
-    return (true)
-  }else if(row1[0]==row1[1]&&row1[1]==row1[2]&&row1[2]==row1[0]){
-    console.log (2,true)
-    return (true)
-  }else if(row2[0]==row2[1]&&row2[1]==row2[2]&&row2[2]==row2[0]){
-    return (3,true)
-  }else if(row3[0]==row3[1]&&row3[1]==row3[2]&&row3[2]==row3[0]){
-    return (4,true)
-  }else if(col1[0]==col1[1]&&col1[1]==col1[2]&&col1[2]==col1[0]){
-    return (5,true)
-  }else if(col2[0]==col2[1]&&col2[1]==col2[2]&&col2[2]==col2[0]){
-    return (6,true)
-  }else if(col3[0]==col3[1]&&col3[1]==col3[2]&&col3[2]==col3[0]){
-    console.log()
-    return (true)
-  }else if(diag1[0]==diag1[1]&&diag1[1]==diag1[2]&&diag1[2]==diag1[0]){
-    return (8,true)
-  }else if(diag2[0]==diag2[1]&&diag2[1]==diag2[2]&&diag2[2]==diag2[0]){
-    return (9,true)
-  }else return(false)
-    // Solution code here...
-  };
+ for(let i=0;i<Total.length;i++){
+  if (Total[i].every(v=>v=="O")){
+  return true
+  }else if (Total[i].every(v=>v=="X")){
+  return true
+  }
+  }
 
-  // Solution code here...
+return false
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
